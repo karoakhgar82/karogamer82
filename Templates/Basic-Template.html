@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html data-wf-page="5eb40cd8b6359941996af497">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <title>First Independent Django Project</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="Webflow" name="generator">
+  <link href="/static/Styles2.css"  
+    rel="stylesheet" type="text/css">
+  <script src="/static/webfont.js"
+    type="text/javascript"></script>
+  <link rel="stylesheet" href="/static/Fonts.css" media="all">
+</head>
+
+<body class="body">
+  <div class="navigation"></div>
+  <div data-collapse="medium" data-animation="default" data-duration="400" data-easing="ease-out"
+    data-easing2="ease-out" role="banner" class="navigation w-nav">
+    <div class="navigation-container"><a href="/Home/" aria-current="page"
+        class="logo w-inline-block w--current"><img
+          src="/static/Logo.svg"
+          alt=""></a>
+      <nav role="navigation" class="nav-menu w-nav-menu"><a href="https://our-project.webflow.io/features"
+          class="nav-link w-nav-link">Features</a><a href="https://our-project.webflow.io/premium"
+          class="nav-link w-nav-link">Premium</a><a href="https://our-project.webflow.io/pricing"
+          class="nav-link w-nav-link">Pricing</a><a href="https://our-project.webflow.io/about"
+          class="nav-link w-nav-link">About</a>
+        <div class="bullet">
+        </div>
+        {% if user.is_authenticated %}
+          <span class="nav-link w-nav-link" >سلام {{request.user.username}}</span>
+          <a class="nav-link w-nav-link" href="{% url 'accounts:logout'%}">خروج</a>
+        {% else %}
+          <a href="{% url 'accounts:login' %}" class="nav-link w-nav-link">ورود</a>
+          <a href="{% url 'accounts:signup'%}" class="navigation-button w-button">ثبت نام</a>
+        {% endif %}  
+      </nav>
+      <div class="menu-button w-nav-button">
+        <div class="icon-2 w-icon-nav-menu"></div>
+      </div>
+    </div>
+    <div class="w-nav-overlay" data-wf-ignore=""></div>
+  </div>
+  <div class="header">
+    {% block header %}
+    {% endblock %}
+    {% block authform %}
+    {% endblock %}
+  </div>
+  {% block content %}
+  {% endblock %}
+  <div class="footer">
+    <div class="container cc-footer">
+      <div class="footer-column cc-footer"><a href="https://our-project.webflow.io/" aria-current="page"
+          class="navigation-logo w-inline-block w--current"><img
+            src="/static/Logo.svg"
+            alt=""></a>
+        <div class="text-footer-credits">© 2018 Spoon Inc, All rights reserved.</div>
+      </div>
+      <div class="footer-column">
+        <div class="footer-links-list"><a href="https://our-project.webflow.io/features"
+            class="link-footer">Features</a><a href="https://our-project.webflow.io/premium"
+            class="link-footer">Premium</a><a href="https://our-project.webflow.io/pricing"
+            class="link-footer">Pricing</a></div>
+        <div class="footer-links-list"><a href="https://our-project.webflow.io/about" class="link-footer">About</a><a
+            href="https://our-project.webflow.io/blog" class="link-footer">Blog</a><a
+            href="https://our-project.webflow.io/contact" class="link-footer">Contact</a></div>
+        <div class="footer-links-list"><a href="https://our-project.webflow.io/image-license-info"
+            class="link-footer">Image License Info</a><a href="https://webflow.com/" class="link-footer">Powered by
+            Webflow</a></div>
+        <div class="footer-social"><a href="https://our-project.webflow.io/#" class="link-social w-inline-block"><img
+              src="/static/facebook.svg"
+              alt=""></a><a href="https://our-project.webflow.io/#" class="link-social w-inline-block"><img
+              src="/static/twitter.svg"
+              alt=""></a><a href="https://our-project.webflow.io/#" class="link-social w-inline-block"><img
+              src="/static/instagram.svg"
+              alt=""></a></div>
+      </div>
+    </div>
+  </div>  
+  <script src="/static/Jquery.js"
+    type="text/javascript"></script>
+  <script src="/static/java-script.js"
+    type="text/javascript"></script>
+</body>
+
+</html>

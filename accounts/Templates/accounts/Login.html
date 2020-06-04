@@ -1,0 +1,16 @@
+{% extends 'Basic-Template.html' %}
+{% block authform %}
+<div class="Signup-Content">
+    <h2 class="Signup-Title">
+        login
+    </h2>
+    <form class="Signup-Form" action="{% url 'accounts:login' %}" method="POST">
+        {% csrf_token %}
+        {{form}}
+        {% if request.GET.next %}
+            <input type="hidden" name="next" value="{{request.GET.next}}">
+        {% endif %}    
+        <button type="submit" >ورود</button>
+    </form>
+</div>    
+{% endblock %}

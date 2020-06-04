@@ -1,0 +1,11 @@
+{% extends 'Basic-Template.html' %}
+{% block authform %}
+<div class="Signup-Content">
+    <h2 class="Signup-Title" >ثبت نام</h2>
+    <form class="Signup-Form" action="/accounts/signup/" method="POST">
+        {%csrf_token%}
+        {{form}}
+        <button type="submit" >ثبت نام</button>
+    </form>
+</div>    
+{% endblock %}
